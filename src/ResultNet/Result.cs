@@ -19,9 +19,9 @@ namespace ResultNet
         {
             return await Result.TryAsync(async() =>
             {
-                await action();
+                await action().ConfigureAwait(false);
                 return true;
-            });
+            }).ConfigureAwait(false);
         }
 
         public static Result Ok()
@@ -29,7 +29,7 @@ namespace ResultNet
             return new Result();
         }
 
-        public Result() : base()
+        public Result()
         {
 
         }

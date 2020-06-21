@@ -59,7 +59,7 @@ namespace ResultNetTests
                 var succeededResult = new Result<string>();
 
                 var currentResult = new Result<SimpleClass>();
-                var resultValue = new SimpleClass() { Age = 20, Name = "Roger" };
+                var resultValue = new SimpleClass { Age = 20, Name = "Roger" };
                 currentResult.Ok(resultValue);
 
                 // Act
