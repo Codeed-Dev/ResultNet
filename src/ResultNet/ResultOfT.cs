@@ -7,7 +7,6 @@ namespace ResultNet
 {
     public class Result<T> : IResult
     {
-
         public static implicit operator bool(Result<T> result)
         {
             return result.Succeeded;
@@ -38,7 +37,7 @@ namespace ResultNet
             var result = new Result<T>();
             try
             {
-                result.Ok(await action());
+                result.Ok(await action().ConfigureAwait(false));
             }
             catch (Exception e)
             {

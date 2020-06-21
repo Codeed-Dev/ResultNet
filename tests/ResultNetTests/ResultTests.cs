@@ -22,8 +22,14 @@ namespace ResultNetTests
             [Fact]
             public void should_return_failed_result_when_action_throws()
             {
-                // Arrange & Act
-                var result = Result.Try(() => throw new Exception());
+                // Arrange
+                Action action = () =>
+                {
+                    throw new Exception();
+                };
+
+                // Act
+                var result = Result.Try(action);
 
                 // Assert
                 Assert.False(result);

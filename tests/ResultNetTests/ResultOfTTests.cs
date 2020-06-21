@@ -89,9 +89,10 @@ namespace ResultNetTests
             {
                 // Arrange 
                 var resultValue = "value";
+                Func<string> action = () => resultValue;
 
                 // Act
-                var result = Result<string>.Try(() => resultValue);
+                var result = Result<string>.Try(action);
 
                 // Assert
                 Assert.True(result);
@@ -101,8 +102,14 @@ namespace ResultNetTests
             [Fact]
             public void should_return_failed_result_when_action_throws()
             {
-                // Arrange & Act
-                var result = Result<string>.Try(() => throw new Exception());
+                // Arrange 
+                Func<string> action = () =>
+                {
+                    throw new Exception();
+                };
+                
+                // Act
+                var result = Result<string>.Try(action);
 
                 // Assert
                 Assert.False(result);
@@ -132,7 +139,7 @@ namespace ResultNetTests
             {
                 // Arrange
                 var result = new Result<SimpleClass>();
-                var value = new SimpleClass()
+                var value = new SimpleClass
                 {
                     Age = 20,
                     Name = "Roger"
@@ -233,6 +240,7 @@ namespace ResultNetTests
 
         public class Cast
         {
+            [Fact]
             public void should_cast_failed_result_errors()
             {
                 // Arrange
@@ -250,6 +258,7 @@ namespace ResultNetTests
                 Assert.Equal("Error 2", castResult.Errors.ElementAt(1));
             }
 
+            [Fact]
             public void should_cast_succeeded_result()
             {
                 // Arrange
