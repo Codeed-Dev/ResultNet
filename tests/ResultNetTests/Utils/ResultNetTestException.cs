@@ -2,7 +2,7 @@
 
 namespace ResultNetTests.Utils
 {
-    class ResultNetTestException : Exception
+    public class ResultNetTestException : Exception
     {
     }
 }
