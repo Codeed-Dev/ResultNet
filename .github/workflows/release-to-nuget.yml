@@ -25,7 +25,7 @@ jobs:
         with:
           source-url: https://api.nuget.org/v3/index.json
         env:
-          NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}} 
+          NUGET_AUTH_TOKEN: ${{secrets.NUGET_AUTH_TOKEN}} 
 
       - name: Setup .NET Core
         uses: actions/setup-dotnet@v1
@@ -38,4 +38,4 @@ jobs:
           dotnet pack -c Release -o out /p:Version=${{ github.event.release.tag_name }} /p:PackageReleaseNotes="See https://github.com/Abhith/Code.Library/releases/tag/${{ github.event.release.tag_name }}"
 
       - name: Push generated package to GitHub registry
-        run: dotnet nuget push ./src/ResultNet/out/*.nupkg -k ${{secrets.GITHUB_TOKEN}} --skip-duplicate --no-symbols true
+        run: dotnet nuget push ./src/ResultNet/out/*.nupkg -k ${{secrets.NUGET_AUTH_TOKEN}} --skip-duplicate --no-symbols true
