@@ -79,7 +79,9 @@ namespace ResultNet
         public void AddError(string errorMessage)
         {
             if (string.IsNullOrWhiteSpace(errorMessage))
+            {
                 throw new ArgumentNullException(nameof(errorMessage));
+            }
 
             _resultErrors.Add(new ResultError(errorMessage));
             Value = default(T);
@@ -88,7 +90,9 @@ namespace ResultNet
         public void AddError(Exception exception)
         {
             if (exception == null)
+            {
                 throw new ArgumentNullException(nameof(exception));
+            }
 
             _resultErrors.Add(new ResultError(exception));
             Value = default(T);

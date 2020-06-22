@@ -105,7 +105,7 @@ namespace ResultNetTests
                 // Arrange 
                 Func<string> action = () =>
                 {
-                    throw new Exception();
+                    throw new ResultNetTestException();
                 };
                 
                 // Act
@@ -194,7 +194,7 @@ namespace ResultNetTests
             {
                 // Arrange
                 var result = new Result<string>();
-                var error = new Exception();
+                var error = new ResultNetTestException();
 
                 // Act
                 result.AddError(error);

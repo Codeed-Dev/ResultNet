@@ -78,7 +78,7 @@ namespace ResultNetTests
                 failedResult.AddError("Error 1");
 
                 var currentResult = new Result<SimpleClass>();
-                var resultValue = new SimpleClass() { Age = 20, Name = "Roger" };
+                var resultValue = new SimpleClass { Age = 20, Name = "Roger" };
                 currentResult.Ok(resultValue);
 
                 // Act
@@ -110,7 +110,7 @@ namespace ResultNetTests
             {
                 // Arrange
                 var result = new Result<string>();
-                var exception = new Exception();
+                var exception = new ResultNetTestException();
 
                 // Act
                 result.Add(exception);
