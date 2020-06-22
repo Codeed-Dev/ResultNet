@@ -1,4 +1,5 @@
 ﻿using ResultNet;
+using ResultNetTests.Utils;
 using System;
 using Xunit;
 
@@ -25,7 +26,7 @@ namespace ResultNetTests
                 // Arrange
                 Action action = () =>
                 {
-                    throw new Exception();
+                    throw new ResultNetTestException();
                 };
 
                 // Act
