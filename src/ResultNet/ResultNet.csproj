@@ -1,7 +1,22 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <Authors>Guilherme Gavazzoni</Authors>
+    <Company />
+    <Copyright></Copyright>
+    <PackageProjectUrl>https://github.com/n4gava/ResultNet</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/n4gava/ResultNet</RepositoryUrl>
+    <PackageTags>Result Status</PackageTags>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <Description>Simple library for operations results.</Description>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
 
 </Project>
