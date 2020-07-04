@@ -4,3 +4,49 @@ Result .Net is a simple library to standardize the returns of APIs and methods t
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/39d7982e076349889ea3024c06163ef1)](https://app.codacy.com/manual/n4gava/ResultNet?utm_source=github.com&utm_medium=referral&utm_content=n4gava/ResultNet&utm_campaign=Badge_Grade_Dashboard)
 ![.NET Core](https://github.com/n4gava/ResultNet/workflows/.NET%20Core/badge.svg)
 ![Release to NuGet](https://github.com/n4gava/ResultNet/workflows/Release%20to%20NuGet/badge.svg)
+
+## How to use it
+
+Result .Net give `Result` and `Result<T>` classes that can be used for indicate whether a method has been successfully executed. This means that, if a method returns a `Result` or `Result<T>`, they could fail.
+
+```csharp
+   public Result DoSomething() {
+      var result = new Result();
+    
+      // Do something...
+       
+      if ( /*error condition */ )
+         result.Add("Error message");
+    
+      return result;
+   }
+```
+
+When you need to return a result value, you should use `Ok` method:
+
+```csharp
+   public Result<string> DoSomethingAndReturnString() {
+      var result = new Result();
+    
+      // Do something...
+       
+      /* if everything run correctly return string value */
+      result.Ok("Executed");
+    
+      return result;
+   }
+```
+
+For check if a Result was executed successfully, you can use the if statement.
+
+```csharp
+   [HttpPost]
+   public IActionResult Post()
+   {
+      Result result = DoSomething();
+      if (!result)
+         return BadRequest(result);  
+         
+      return Ok(result);
+   }
+```
