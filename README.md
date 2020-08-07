@@ -1,5 +1,5 @@
 # What is ResultNet
-Result .Net is a simple library to standardize the returns of APIs and methods that can fail.
+Result .Net is a simple library to standardize the returns of APIs and methods that may fail.
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/39d7982e076349889ea3024c06163ef1)](https://app.codacy.com/manual/n4gava/ResultNet?utm_source=github.com&utm_medium=referral&utm_content=n4gava/ResultNet&utm_campaign=Badge_Grade_Dashboard)
 ![.NET Core](https://github.com/n4gava/ResultNet/workflows/.NET%20Core/badge.svg)
@@ -7,7 +7,7 @@ Result .Net is a simple library to standardize the returns of APIs and methods t
 
 ## How to use it
 
-Result .Net give `Result` and `Result<T>` classes that can be used for indicate whether a method has been successfully executed. This means that, if a method returns a `Result` or `Result<T>`, they could fail.
+Result .Net gives `Result` and `Result<T>` classes that can be used for indicate whether a method has been successfully executed. This means that, if a method returns a `Result` or `Result<T>`, it could fail.
 
 ```csharp
    public Result DoSomething() {
@@ -37,7 +37,7 @@ When you need to return a result value, you should use `Ok` method:
    }
 ```
 
-For check if a Result was executed successfully, you can use the if statement.
+To check if a `Result` was executed successfully, you can use the if statement.
 
 ```csharp
    [HttpPost]
