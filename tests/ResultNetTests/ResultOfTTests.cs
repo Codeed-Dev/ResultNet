@@ -254,8 +254,9 @@ namespace ResultNetTests
                 // Assert
                 Assert.NotEmpty(castResult.Errors);
                 Assert.False(castResult);
-                Assert.Equal("Error 1", castResult.Errors.ElementAt(0));
-                Assert.Equal("Error 2", castResult.Errors.ElementAt(1));
+                Assert.Collection(castResult.Errors, 
+                    (error1) => Assert.Equal("Error 1", error1), 
+                    (error2) => Assert.Equal("Error 2", error2));
             }
 
             [Fact]

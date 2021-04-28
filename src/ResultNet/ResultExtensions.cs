@@ -15,9 +15,9 @@ namespace ResultNet
             return result;
         }
 
-        public static Result<T> Add<T>(this Result<T> result, string errorMessage)
+        public static Result<T> Add<T>(this Result<T> result, params string[] errorMessages)
         {
-            result.AddError(errorMessage);
+            result.Add(errorMessages as IEnumerable<string>);
             return result;
         }
 

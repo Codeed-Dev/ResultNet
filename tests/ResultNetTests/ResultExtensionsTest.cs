@@ -30,8 +30,9 @@ namespace ResultNetTests
                 // Assert
                 Assert.False(currentResult);
                 Assert.Equal(2, currentResult.Errors.Count());
-                Assert.Equal("Error 1", currentResult.Errors.ElementAt(0));
-                Assert.Equal("Error 2", currentResult.Errors.ElementAt(1));
+                Assert.Collection(currentResult.Errors,
+                    (error1) => Assert.Equal("Error 1", error1),
+                    (error2) => Assert.Equal("Error 2", error2));
             }
 
             [Fact]
@@ -103,6 +104,23 @@ namespace ResultNetTests
                 Assert.False(result);
                 Assert.Single(result.Errors);
                 Assert.Equal(errorMessage, result.Errors.First());
+            }
+
+            [Fact]
+            public void should_add_string_multiple_error_messages()
+            {
+                // Arrange
+                var result = new Result<string>();
+
+                // Act
+                result.Add("Error 1", "Error 2", "Error 3");
+
+                // Assert
+                Assert.False(result);
+                Assert.Collection(result.Errors,
+                    (error1) => Assert.Equal("Error 1", error1),
+                    (error2) => Assert.Equal("Error 2", error2),
+                    (error3) => Assert.Equal("Error 3", error3));
             }
 
             [Fact]
