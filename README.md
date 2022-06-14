@@ -1,7 +1,6 @@
 # What is ResultNet
 Result .Net is a simple library to standardize the returns of APIs and methods that may fail.
 
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/46536bc0b1df42d38f214949099bed02)](https://www.codacy.com/gh/Gava-NET/ResultNet/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Gava-NET/ResultNet&amp;utm_campaign=Badge_Grade)
 ![.NET Core](https://github.com/n4gava/ResultNet/workflows/.NET%20Core/badge.svg)
 ![Release to NuGet](https://github.com/n4gava/ResultNet/workflows/Release%20to%20NuGet/badge.svg)
 
